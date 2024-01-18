@@ -6,12 +6,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CoreModule } from './core/core.module';
-import { TodolistComponent } from './todo/todolist/todolist.component';
+import { TaskModule } from './task/task.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TodolistComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +18,8 @@ import { TodolistComponent } from './todo/todolist/todolist.component';
     BrowserAnimationsModule
   ],
   exports: [
-    CoreModule
+    CoreModule,
+    TaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]

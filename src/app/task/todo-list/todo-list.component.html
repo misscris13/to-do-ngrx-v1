@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="list">
+        <mat-list>
+            <mat-list-item *ngFor="let task of tasks">
+                <mat-card class="task-card">
+
+                    <mat-card-header>
+
+                        <mat-icon class={{iconColor[task.priority]}}>{{icons[task.priority]}}</mat-icon>
+                        {{task.name}}
+
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+
+                    </mat-card-header>
+
+                    <mat-card-content>
+                        
+                        <mat-checkbox [checked]="task.done" (click)="changeDone(task)"></mat-checkbox>
+                        
+                        <div class="info">
+                            {{task.info}}
+                        </div>
+
+                    </mat-card-content>
+                </mat-card>
+            </mat-list-item>
+        </mat-list>
+    </div>
+
+    <div class="options">
+        <button mat-button>
+            create task
+        </button>
+
+        <div id="filters">
+            <mat-checkbox (click)="toggleTasks(2)" checked="true">show <div class="red">urgent</div></mat-checkbox>
+            <mat-checkbox (click)="toggleTasks(1)" checked="true">show <div class="yellow">important</div></mat-checkbox>
+            <mat-checkbox (click)="toggleTasks(0)" checked="true">show <div class="green">common</div></mat-checkbox>
+        </div>
+    </div>
+</div>
