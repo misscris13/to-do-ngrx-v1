@@ -1,0 +1,76 @@
+$dark-blue: #101115;
+$lavender: #DDDEE4;
+
+@font-face {
+    font-family: 'Exo';
+    src: url("../../../assets/Exo-VariableFont_wght.ttf");
+}
+
+.container {
+    display: flex;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Exo';
+
+    .left {
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    
+    .right {
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        background-color: $dark-blue;
+        color: $lavender;
+
+        #logo {
+            padding: 1vh 1vw;
+
+            img {
+
+                width: 3vw;
+            }
+        }
+
+        .login {
+            font-size: 7vh;
+            padding: 15vh 0 15vh 10vw;
+
+            form {
+                margin-top: 10vh;
+                width: 25vw;
+                
+                mat-form-field {
+                    display: block;
+                    width: 100%;
+                    margin-top: 3vh;
+                }
+
+                button {
+                    float: right;
+                    width: 6vw;
+                    height: 5vh;
+                    padding: 2vh 1vw;
+                    background-color: $lavender;
+                    color: $dark-blue;
+                    font-size: 1vw;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        #footer {
+            padding: 2vh 1vw;
+            position: absolute;
+            bottom: 0;
+        }
+    }
+}

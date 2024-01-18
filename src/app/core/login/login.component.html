@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="left">
+        <img src="../../../assets/background.png">
+    </div>
+    
+    <div class="right">
+        <div id="logo">
+            <img src="../../../assets/logo.png">
+        </div>
+
+        <div class="login">
+            Sign in
+
+            <form>
+                <mat-form-field>
+                    <label>e-mail</label>
+                    <input matInput [formControl]="email">
+                </mat-form-field>
+                <mat-form-field>
+                    <label>password</label>
+                    <input matInput type="password" [formControl]="password">
+                </mat-form-field>
+                <button mat-raised-button (click)="login()">sign in</button>
+            </form>
+        </div>
+
+        <div id="footer">
+            developed by Cristal Campos
+        </div>
+    </div>
+</div>
