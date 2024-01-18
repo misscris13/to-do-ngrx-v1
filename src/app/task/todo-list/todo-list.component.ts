@@ -10,7 +10,9 @@ import { TaskService } from '../task.service';
 })
 export class TodoListComponent implements OnInit {
 
+    rawTasks: Task[];
     tasks: Task[];
+    filtered: number[];
     icons: String[] = ["check_circle", "warning", "error"];
     iconColor: String[] = ["green", "yellow", "red"];
 
@@ -21,8 +23,12 @@ export class TodoListComponent implements OnInit {
     ngOnInit(): void {
 
         this.taskService.getTasks().subscribe(
-            res => this.tasks = res
+            res => this.rawTasks = res
         );
+
+        this.tasks = this.rawTasks;
+
+        this.filtered = [];
     }
 
     changeDone(task:Task) {
@@ -32,5 +38,22 @@ export class TodoListComponent implements OnInit {
 
     toggleTasks(priority:number) {
         
+        let filteredTasks: Task[];
+        this.tasks = this.rawTasks;
+
+        if (!this.filtered.includes(priority)) {
+            this.filtered.push(priority);
+        } else {
+            this.filtered = this.filtered.filter(n => n != priority);
+        }
+        
+        this.filtered.forEach(n => {
+            this.taskService.getTasks().subscribe(
+                res => {
+                    filteredTasks = this.tasks.filter(task => task.priority != n);
+                }
+            );
+            this.tasks = filteredTasks;
+        });
     }
 }
