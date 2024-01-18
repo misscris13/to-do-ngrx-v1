@@ -16,13 +16,12 @@ export class LoginComponent {
     constructor(private sharedService:SharedService, private router:Router) {}
 
     login():void {  
-        this.sharedService.login(this.email.value, this.password.value).subscribe(
-            res => {
-                if (res) {
-                   this.sharedService.setToken(res);
-                   this.router.navigate(["/to-do"]);
-                }
-            }
-        );
+        let res = this.sharedService.login(this.email.value, this.password.value)
+
+        if (res) {
+
+            this.sharedService.setToken(res);
+            this.router.navigate(["/to-do"]);
+        }
     }
 }

@@ -1,17 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { TOKEN } from './mock-token';
+import { User } from './model/User';
+import { USER_DATA } from './model/mock-users';
 
 @Injectable({
     providedIn: 'root'
 })
 export class LoginService {
 
+    users: User[];
+
     constructor() { }
 
-    login(email:string, password:string):Observable<any> {
+    getUsers(): User[] {
+        return USER_DATA;
+    }
 
-        // check if user is logged in
-        return of(TOKEN);
+    login(email:string, password:string):Observable<any> {
+        
+        let user = this.getUsers()
+        .filter(u => u.email == email && u.password == password)
+
+        if(user) {
+            return of(TOKEN);
+        }
     }   
 }

@@ -9,7 +9,7 @@
                         <mat-icon class={{iconColor[task.priority]}}>{{icons[task.priority]}}</mat-icon>
                         {{task.name}}
 
-                        <button mat-icon-button>
+                        <button mat-icon-button (click)="editTask(task)">
                             <mat-icon>edit</mat-icon>
                         </button>
 
@@ -30,7 +30,7 @@
     </div>
 
     <div class="options">
-        <button mat-button>
+        <button mat-button (click)="createTask()">
             create task
         </button>
 
